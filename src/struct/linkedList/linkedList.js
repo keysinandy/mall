@@ -23,6 +23,25 @@ class LinkedList {
     return this
   }
 
+  delHead () {
+    let deleteNode = null
+    if (this.head) {
+      let nextHead = this.head.next;
+      deleteNode = this.head;
+      this.head.next = null;
+      !(this.head = nextHead) && (this.tail = null);
+    }
+    return deleteNode
+  }
+
+  delTail () {
+    let deleteNode = null
+    if (this.tail) {
+
+    }
+    return deleteNode
+  }
+
   reverse () {
     let currentNode = this.head
     let prevNode = null
