@@ -23,11 +23,29 @@ class LinkedList {
     return this
   }
 
+  reverse () {
+    let currentNode = this.head
+    let prevNode = null
+    let nextNode = null
+    while (currentNode) {
+      //对下一个节点的引用
+      nextNode = currentNode.next
+      //将当前节点的next指向上一个节点
+      currentNode.next = prevNode
+      //重新给prevNode赋值
+      prevNode = currentNode
+      currentNode = nextNode
+    }
+    //最后交换头尾
+    [this.head, this.tail] = [this.tail, this.head]
+    return this
+  }
+
   toString() {
     let current = this.head
     let result = ""
     while (current) {
-      result += current === this.tail ? current.value : current.value + " --> "
+      result += current === this.tail ? current.value : current.value + "-->"
       current = current.next
     }
     return result
