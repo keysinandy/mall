@@ -30,7 +30,7 @@ class Stack {
   toString (separate = "") {
     return this.list.toString(separate)
   }
-  
+
 }
 
 export default Stack

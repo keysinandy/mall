@@ -55,7 +55,7 @@ class DoubleLinkedList {
     }
     return deleteNode
   }
-  
+
   reverse () {
     [this.head, this.tail] = [this.tail, this.head]
     return this
