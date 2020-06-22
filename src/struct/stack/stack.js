@@ -1,6 +1,6 @@
 import LinkedList from '../linkedList/linkedList'
 
-class Queue {
+class Stack {
   constructor () {
     this.list = new LinkedList()
   }
@@ -10,19 +10,17 @@ class Queue {
   }
 
   peak () {
-    let value = this.list.head ? this.list.head.value : null
-    return value
+    return this.list.head ? this.list.head.value : null
   }
 
-  dequeue () {
-    //删除头部
+  pop () {
     let node = this.list.delHead()
-    return (node && node.value)
+    return node && node.value
   }
 
-  enqueue (value) {
-    //添加到尾部
-    return this.list.append(value)
+  push (value) {
+    this.list.prepend(value)
+    return value
   }
 
   toArray () {
@@ -32,6 +30,7 @@ class Queue {
   toString (separate = "") {
     return this.list.toString(separate)
   }
+  
 }
 
-export default Queue
+export default Stack

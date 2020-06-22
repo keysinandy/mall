@@ -60,6 +60,7 @@ describe("测试linkedList", () => {
 
   it("测试toString", () => {
     const linkedList = new LinkedList()
+    expect(linkedList.toString()).toBe("")
     linkedList.prepend("second").prepend("first")
     expect(linkedList.toString("-->")).toBe("first-->second")
     expect(linkedList.toString()).toBe("firstsecond")
@@ -67,6 +68,7 @@ describe("测试linkedList", () => {
 
   it("测试toArray", () => {
     const linkedList = new LinkedList()
+    expect(linkedList.toArray()).toEqual([])
     linkedList.prepend("second").prepend("first")
     expect(linkedList.toArray()).toEqual(['first', 'second'])
   })
