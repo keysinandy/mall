@@ -26,9 +26,9 @@ class LinkedList {
   delHead () {
     let deleteNode = null
     if (this.head) {
-      let nextHead = this.head.next;
-      deleteNode = this.head;
-      this.head.next = null;
+      let nextHead = this.head.next
+      deleteNode = this.head
+      this.head.next = null
       !(this.head = nextHead) && (this.tail = null);
     }
     return deleteNode
@@ -37,7 +37,19 @@ class LinkedList {
   delTail () {
     let deleteNode = null
     if (this.tail) {
-
+      let currentNode = this.head
+      deleteNode = this.tail
+      if (this.head === this.tail) {
+        this.head = null
+        this.tail = null
+      }
+      while(currentNode && currentNode.next) {
+        if (currentNode.next === this.tail) {
+          currentNode.next = null;
+          this.tail = currentNode
+        }
+        currentNode = currentNode.next
+      }
     }
     return deleteNode
   }

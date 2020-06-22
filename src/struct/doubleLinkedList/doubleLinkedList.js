@@ -31,6 +31,30 @@ class DoubleLinkedList {
       return this
     }
   }
+
+  delHead () {
+    let deleteNode = null
+    if (this.head) {
+      let nextHead = this.head.next
+      nextHead && (nextHead.prev = null)
+      deleteNode = this.head
+      deleteNode.next = null
+      !(this.head = nextHead) && (this.tail = null)
+    }
+    return deleteNode
+  }
+
+  delTail () {
+    let deleteNode = null
+    if (this.tail) {
+      let nextTail = this.tail.prev
+      nextTail && (nextTail.next = null)
+      deleteNode = this.tail
+      deleteNode.prev = null
+      !(this.tail = nextTail) && (this.head = null)
+    }
+    return deleteNode
+  }
   
   reverse () {
     [this.head, this.tail] = [this.tail, this.head]
