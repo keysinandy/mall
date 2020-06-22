@@ -54,14 +54,15 @@ describe("测试linkedList", () => {
   it("测试reverse", () => {
     const linkedList = new LinkedList()
     linkedList.append("first").append("second").append("third")
-    expect(linkedList.toString()).toBe("first-->second-->third")
-    expect(linkedList.reverse().toString()).toBe("third-->second-->first")
+    expect(linkedList.toString("-->")).toBe("first-->second-->third")
+    expect(linkedList.reverse().toString("-->")).toBe("third-->second-->first")
   })
 
   it("测试toString", () => {
     const linkedList = new LinkedList()
     linkedList.prepend("second").prepend("first")
-    expect(linkedList.toString()).toBe("first-->second")
+    expect(linkedList.toString("-->")).toBe("first-->second")
+    expect(linkedList.toString()).toBe("firstsecond")
   })
 
   it("测试toArray", () => {

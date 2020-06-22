@@ -72,11 +72,11 @@ class LinkedList {
     return this
   }
 
-  toString() {
+  toString(separate = "") {
     let current = this.head
     let result = ""
     while (current) {
-      result += current === this.tail ? current.value : current.value + "-->"
+      result += current === this.tail ? current.value : current.value + separate
       current = current.next
     }
     return result
