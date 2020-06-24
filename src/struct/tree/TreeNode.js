@@ -26,6 +26,10 @@ class TreeNode {
     }
   }
 
+  get heightDiff () {
+    return this.rightHeight - this.leftHeight
+  }
+
   setValue (value) {
     this.value = value
   }
@@ -52,6 +56,52 @@ class TreeNode {
     return this
   }
 
+  /**
+   * 移除子树
+   * @param {TreeNode} treeNode
+   */
+  removeChild (treeNode) {
+    if (this.right === treeNode) {
+      this.right.parent = null
+      this.right = null
+    } else if (this.left === treeNode) {
+      this.left.parent = null
+      this.left = null
+    } else {
+      return false
+    }
+    return true
+  }
+
+  /**
+   * 将某个子节点替换为新的节点
+   * @param {*} childNode
+   * @param {*} newNode
+   */
+  replaceChild (childNode, newNode) {
+    if (this.right === childNode) {
+      this.right.parent = null
+      this.right = newNode
+      newNode.parent = this
+    } else if (this.left === childNode) {
+      this.left.parent = null
+      this.left = newNode
+      newNode.parent = this
+    } else {
+      return false
+    }
+    return true
+  }
+
+  /**
+   * 将自身替换为新节点
+   * @param {*} newNode
+   */
+  replaceSelf (newNode) {
+    this.value = newNode.value
+    this.left = newNode.left
+    this.right = newNode.right
+  }
   //先序
   traversePreOrder () {
     let traverse = [];
