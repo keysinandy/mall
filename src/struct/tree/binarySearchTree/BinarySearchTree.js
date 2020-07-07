@@ -39,6 +39,10 @@ class BinarySearchTree {
     return this.root.rightHeight
   }
 
+  get heightDiff () {
+    return this.root.heightDiff
+  }
+
 }
 
 export default BinarySearchTree

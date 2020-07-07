@@ -11,6 +11,7 @@ class TreeNode {
   }
 
   get leftHeight () {
+    //递归栈太多？
     if (this.left === null) {
       return 0
     } else {
@@ -27,7 +28,7 @@ class TreeNode {
   }
 
   get heightDiff () {
-    return this.rightHeight - this.leftHeight
+    return this.leftHeight - this.rightHeight
   }
 
   setValue (value) {

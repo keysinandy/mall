@@ -38,7 +38,7 @@ describe("测试 treeNode", () => {
     two.setRight(three)
     root.setRight(four)
     four.setLeft(five)
-    expect(root.heightDiff).toBe(-1)
+    expect(root.heightDiff).toBe(1)
     expect(root.leftHeight).toBe(3)
     expect(root.rightHeight).toBe(2)
     expect(root.height).toBe(3)
