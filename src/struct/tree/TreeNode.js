@@ -15,7 +15,7 @@ class TreeNode {
     if (this.left === null) {
       return 0
     } else {
-      return this.left.height + 1
+      return 1 + this.left.height
     }
   }
 
@@ -23,7 +23,7 @@ class TreeNode {
     if (this.right === null) {
       return 0
     } else {
-      return this.right.height + 1
+      return 1 + this.right.height
     }
   }
 
@@ -41,6 +41,7 @@ class TreeNode {
    */
   setLeft (treeNode) {
     this.left && (this.left.parent = null)
+    treeNode && treeNode.parent && treeNode.parent.removeChild(treeNode)
     this.left = treeNode
     treeNode && (treeNode.parent = this)
     return this
@@ -52,6 +53,7 @@ class TreeNode {
    */
   setRight (treeNode) {
     this.right && (this.right.parent = null)
+    treeNode && treeNode.parent && treeNode.parent.removeChild(treeNode)
     this.right = treeNode
     treeNode && (treeNode.parent = this)
     return this
